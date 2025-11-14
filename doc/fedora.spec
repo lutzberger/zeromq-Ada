@@ -9,7 +9,7 @@ License:	MIT
 URL:		zeromq.org
 Source:	%{name}-%{version}.tar.bz
 Patch0: 0001-change-library-path.patch
-BuildRequires:	gnatpro-devel zeromq-devel >= %{version}
+BuildRequires:	gcc-gnat zeromq-devel >= %{version}
 Requires:	zeromq-devel >= %{version}
 BuildArchitectures: x86_64
 
@@ -26,6 +26,7 @@ make %{?_smp_mflags}
 Summary:        Devel package for Ada binding for zeromq
 Group:          System Environment/Libraries
 License:        MIT
+Requires:       %name = %version
 
 %description devel
 Devel package for Ada binding for zeromq
@@ -96,5 +97,7 @@ rm -f %{buildroot}/usr/gnat/lib/zmq/static/libzmqAda.a
 %{_prefix}/gnat/share/zmq/examples/Ada/* 
 
 %changelog
+* Fri Nov 14 2025 Lutz Beger <lutz.berger@airbus.com> 4.1.5-1
+- update spec file and provide patch
 * Wed Feb 2 2011 Pavel Zhukov <pavel@zhukoff.net> - 2.0.10-1
 - Initial package
